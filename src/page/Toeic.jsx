@@ -1,4 +1,4 @@
-import { Button, Image, notification } from "antd";
+import { Image } from "antd";
 import part1 from "../image/ImagePart1.png";
 import part2 from "../image/ImagePart2.png";
 import part3 from "../image/ImagePart3.png";
@@ -11,29 +11,21 @@ import luuYThi from "../image/toeic_luu_y.png";
 import Competitions from "../components/app.competition";
 import Consultation from "../components/app.consultation";
 import AppFooter from "../components/app.footer";
-import { getAllExam } from "../api/exam";
-import { useNavigate } from "react-router-dom";
+// import { HeaderMenu } from "../components/app.menu";
+// import Speed from "../components/app.speedDial";
+// import { AppMenu } from "../components/menu";
 
 function Toeic() {
 
-    const navigate = useNavigate();
-    const handleSubmitFreeExam = () => {
-        getAllExam()
-            .then((res) => {
-                console.log(res.data.body.data.items);
-                if (res.data.body.success) {
-                    // setData();
-                    const data = res.data.body.data.items;
-                    notification.success({ message: "Thanh cong " });
-                    navigate("/exam/all", { state: data });
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+    // const navigate = useNavigate();
+    const handleSubmit = () => {
+        window.location.href = '/beforeExam';
     };
     return (
         <div className="w-full">
+            {/* <AppMenu /> */}
+            {/* <HeaderMenu /> */}
+            {/* <Speed /> */}
             <div className="mx-2">
                 <div className="absolute mx-14 py-5">
                     <svg width="300" height="300" viewBox="0 0 384 385" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,12 +50,16 @@ function Toeic() {
                                 thi bám sát định dạng, giúp thí sinh tự tin bước vào các kỳ thi chính thức
                             </p>
 
-                            <Button
-                                className="bg-[#fb9400] font-bold text-white hover:bg-orange-200 hover:border-transparent hover:text-orange-300 border-[#fca01c]"
-                                onClick={handleSubmitFreeExam}
+                            <button
+                                className="my-auto flex bg-[#fb9400] font-bold text-white border-[#fca01c] px-3 py-1 rounded-md shadow-lg hover:bg-yellow-500"
+                                onClick={handleSubmit}
                             >
-                                Thi thử miễn phí{" "}
-                            </Button>
+                                Thi thử miễn phí{" "}
+                                <svg className="my-auto ml-2" width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 0.847063V1.75991C1 1.82198 1.02612 1.8804 1.06896 1.91692L5.16088 5.37477L1.06896 8.83262C1.02612 8.86914 1 8.92756 1 8.98963V9.90248C1 9.98159 1.07732 10.0278 1.13271 9.98159L6.21207 5.69C6.39598 5.53421 6.39598 5.21533 6.21207 5.06075L1.13271 0.769167C1.07732 0.721699 1 0.76795 1 0.847063Z" fill="white" stroke="white" stroke-width="1.25" />
+                                </svg>
+
+                            </button>
                         </div>
                         <div className="col-span-1">
                             <Image src={banner} fill alt="" />
@@ -71,7 +67,7 @@ function Toeic() {
                     </div>
                     <div className="my-10">
                         <div className=" my-5 text-center mx-auto max-w-screen-lg">
-                            <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl">Hiểu về bài thi TOEIC</span>
+                            <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl py-1">Hiểu về bài thi TOEIC</span>
                         </div>
                         <div className="max-w-screen-md">
                             <div className="my-5">
@@ -85,25 +81,25 @@ function Toeic() {
                     </div>
                     <p className="font-bold text-xl">Listening</p>
                     <div className="grid tablet:grid-cols-4 mobile:grid-cols-1 gap-5 justify-around py-2">
-                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 sm:h-full">
+                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 sm:h-full hover:shadow-lg">
                             <Image src={part1} fill alt="" priority />
                             <p className="font-bold">Path 1</p>
                             <p className="font-bold">Mô tả tranh</p>
                             <p className="text-sm text-[#667085]">Thí sinh sẽ nghe 1 lần duy nhất 4 câu mô tả tranh.Sau đó chọn 1 đáp án mô tả đúnh nhất.</p>
                         </div>
-                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1">
+                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 hover:shadow-lg">
                             <Image src={part2} fill alt="" priority />
                             <p className="font-bold">Path 2</p>
                             <p className="font-bold">Hỏi-Đáp</p>
                             <p className="text-sm text-[#667085]">Thí sinh nghe 1 lần duy nhất 3 câu hồi đáp cho 1 câu hỏi hoặc 1 câu nói. Sau đó chọn câu hồi đáp phù hợp nhất.</p>
                         </div>
-                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1">
+                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 hover:shadow-lg">
                             <Image src={part3} fill alt="" priority />
                             <p className="font-bold">Path 3</p>
                             <p className="font-bold">Đoạn hội thoại</p>
                             <p className="text-sm text-[#667085]">Thí sinh nghe 1 lần duy nhất các đoạn hội thoại giữa 2 hoặc 3 người. Mỗi đoạn hội thoại sẽ có 3 câu hỏi, mỗi câu hỏi có 4 lựa chọn. Thí sinh đọc câu hỏi sau đó chọn câu trả lời phù hợp nhất.</p>
                         </div>
-                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1">
+                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 hover:shadow-lg">
                             <Image src={part4} fill alt="" priority />
                             <p className="font-bold">Path 4</p>
                             <p className="font-bold">Bài nói ngắn</p>
@@ -112,19 +108,19 @@ function Toeic() {
                     </div>
                     <p className="font-bold text-xl">Reading</p>
                     <div className="grid tablet:grid-cols-4 mobile:grid-cols-1 gap-5 justify-around py-2">
-                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 sm:h-full">
+                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 sm:h-full hover:shadow-lg">
                             <Image src={part5} fill alt="" priority />
                             <p className="font-bold">Path 5</p>
                             <p className="font-bold">Hoàn thành câu</p>
                             <p className="text-sm text-[#667085]">Chọn đáp án đúng nhất trong 4 đáp án để hoàn thành câu.</p>
                         </div>
-                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1">
+                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 hover:shadow-lg">
                             <Image src={part6} fill alt="" priority />
                             <p className="font-bold">Path 6</p>
                             <p className="font-bold">Hoàn thành đoạn văn</p>
                             <p className="text-sm text-[#667085]">Chọn đáp án đũng nhất trong 4 đáp án(từ, cụm hoặc câu) để hoàn thành đoạn văn. Mỗi đoạn văn sẽ có 4 câu hỏi.</p>
                         </div>
-                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1">
+                        <div className="shadow-lg border-solid border rounded-md border-[#fb9400] p-3 col-span-1 hover:shadow-lg">
                             <Image src={part7} fill alt="" priority />
                             <p className="font-bold">Path 7</p>
                             <p className="font-bold">Đọc hiểu</p>
@@ -132,27 +128,27 @@ function Toeic() {
                         </div>
                     </div>
                     <div className=" my-5 text-center mx-auto max-w-screen-lg">
-                        <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl">Mô phỏng bài thi TOEIC</span>
+                        <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl py-1">Mô phỏng bài thi TOEIC</span>
                     </div>
                     <div className=" grid tablet:grid-cols-2 mobile:grid-cols-1 gap-5 justify-around py-2">
                         <div className="p-3 rounded-lg col-span-1 bg-gradient-to-r from-[#04183b] via-[#00508d] to-[#04183b] md:px-10">
                             <p className="font-bold uppercase text-white">mini test</p>
                             <div className="grid tablet:grid-cols-3 mobile:grid-cols-1 gap-5 justify-around py-2">
                                 <p className="text-sm text-white col-span-2">Làm bài mini test với số lượng câu hỏi và thời gian giảm một nửa so với bài thi thật</p>
-                                <button className="text-white bg-[#fb9400] my-3 p-2 rounded-md font-bold float-right">Luyện tập</button>
+                                <button className="text-white bg-[#fb9400] my-3 p-2 rounded-md font-bold float-right hover:bg-yellow-500">Luyện tập</button>
                             </div>
                         </div>
                         <div className="p-3 rounded-lg col-span-1 bg-gradient-to-r from-[#04183b] via-[#00508d] to-[#04183b] md:px-10">
                             <p className="font-bold uppercase text-white">full test</p>
                             <div className="grid tablet:grid-cols-3 mobile:grid-cols-1 gap-5 justify-around py-2 float-left">
                                 <p className="text-sm text-white col-span-2">Làm bài full test với số lượng câu hỏi và thời gian giống bài thi thật</p>
-                                <button className="text-white col-span-1 bg-[#fb9400] my-3 p-2 rounded-md font-bold float-right">Luyện tập</button>
+                                <button className="text-white col-span-1 bg-[#fb9400] my-3 p-2 rounded-md font-bold float-right hover:bg-yellow-500">Luyện tập</button>
                             </div>
                         </div>
                     </div>
-                    <div className="">
+                    <div>
                         <div className=" my-5 text-center mx-auto max-w-screen-lg">
-                            <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl">Lợi ích khi thi thử TOEIC</span>
+                            <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl py-1">Lợi ích khi thi thử TOEIC</span>
                             <div className="p-3 grid tablet:grid-cols-3 mobile:grid-cols-1 gap-5 justify-around py-10 " relative data-carousel="slide">
                                 <div className="col-span-1 bg-[#29bdcf] text-white p-5 rounded-lg shadow-md shadow-[#b8b8b8]" data-carousel-item>
                                     <div className="flex py-5 gap-5">
@@ -203,7 +199,7 @@ function Toeic() {
 
                     <div className="px-3">
                         <div className=" my-5 text-center mx-auto max-w-screen-lg">
-                            <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl">Lưu ý khi làm đề thi thử TOEIC online</span>
+                            <span className="font-bold text-center border-b-2 border-[#fb9400] text-xl py-1">Lưu ý khi làm đề thi thử TOEIC online</span>
                         </div>
                         <div className="mobile:my-5 grid tablet:grid-cols-2 mobile:grid-cols-1 gap-10 justify-center">
                             <div className="col-span-1 text-left tablet:ml-[10%] mobile:ml-2">

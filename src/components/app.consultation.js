@@ -112,7 +112,7 @@ const Consultation = () => {
             <nav className="justify-normal text-center">
                 <button
                     type="button"
-                    className="focus:outline-none text-white bg-[#fb9400] hover:bg-orange-400 focus:ring-4 font-medium rounded-lg text-bold text-sm px-5 py-2.5 m-3"
+                    className="text-white bg-[#fb9400] hover:bg-yellow-500 font-bold rounded-lg text-bold sm:text-sm px-3 py-2 m-5"
                 >
                     Gửi thông tin
                 </button>

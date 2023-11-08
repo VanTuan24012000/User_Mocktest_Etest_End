@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 import Competitions from "../components/app.competition";
 import Consultation from "../components/app.consultation";
 import AppFooter from "../components/app.footer";
+import { HeaderMenu } from "../components/app.menu";
 
 // function MockTest() {
 function Vstep() {
@@ -51,11 +52,16 @@ function Vstep() {
       });
   };
   const isUserId = Cookies.get("id") !== null ? true : false;
+
+  const handleSubmit = () => {
+    window.location.href = 'beforeExam';
+  }
   return (
-    <div className="mx-2">
+    <div className="">
+      <HeaderMenu />
       {/* <h2>this is the text</h2> */}
 
-      <div className="  bg-[#FFF4E5] grid tablet:grid-cols-2 mobile:grid-cols-1 gap-5  mb-5 py-5 items-center shadow-md">
+      <div className="sm:pt-20 p-5 bg-[#FFF4E5] grid tablet:grid-cols-2 mobile:grid-cols-1 gap-5  mb-5 items-center shadow-md">
         <div className="col-span-1 text-left tablet:ml-[10%] mobile:ml-2">
           <h2 className="text-slate-950 font-semibold text-3xl ">
             {" "}
@@ -70,25 +76,32 @@ function Vstep() {
           </p>
 
           <div className="flex justify-start gap-2">
-            <Button
-              className="bg-[#fb9400] font-bold text-white hover:bg-orange-200 hover:border-transparent hover:text-orange-300 border-[#fca01c]"
-              onClick={handleSubmitFreeExam}
+            <button
+              className="flex bg-[#fb9400] px-2 text-white font-bold my-auto sm:px-2 sm:py-1 sm:mr-2 border-2 border-[#fb9400] rounded-md shadow-md shadow-[#bfb7ac] hover:bg-yellow-500 hover:border-yellow-500"
+              // onClick={handleSubmitFreeExam}
+              onClick={handleSubmit}
             >
               Thi thử miễn phí{" "}
-            </Button>
-            <Button className=" flex hover:bg-orange-200  hover:border-[#fb9400]  border-[#fb9400] text-[#fb9400] font-bold">
+              <svg className="my-auto mx-2 hidden sm:block" width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 0.847063V1.75991C1 1.82198 1.02612 1.8804 1.06896 1.91692L5.16088 5.37477L1.06896 8.83262C1.02612 8.86914 1 8.92756 1 8.98963V9.90248C1 9.98159 1.07732 10.0278 1.13271 9.98159L6.21207 5.69C6.39598 5.53421 6.39598 5.21533 6.21207 5.06075L1.13271 0.769167C1.07732 0.721699 1 0.76795 1 0.847063Z" fill="white" stroke="white" stroke-width="1.25" />
+              </svg>
+            </button>
+            <button className="flex px-2 sm:px-5 border my-auto border-[#fb9400] rounded-md sm:py-1 text-[#fb9400] font-bold  hover:bg-yellow-500 hover:border-yellow-500 hover:text-white">
               Xem lịch thi thử VSTEP
               <svg
-                className="my-auto ml-2"
+                className="my-auto ml-2 hover:fill-[#fff] hidden sm:block"
                 width="15"
                 height="15"
                 viewBox="0 0 15 15"
-                fill="none"
+                stroke="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
-                <path d="M14.4 1.30476H11.25V0.144973C11.25 0.065238 11.1825 0 11.1 0H10.05C9.9675 0 9.9 0.065238 9.9 0.144973V1.30476H5.1V0.144973C5.1 0.065238 5.0325 0 4.95 0H3.9C3.8175 0 3.75 0.065238 3.75 0.144973V1.30476H0.6C0.268125 1.30476 0 1.5639 0 1.88465V13.9174C0 14.2382 0.268125 14.4973 0.6 14.4973H14.4C14.7319 14.4973 15 14.2382 15 13.9174V1.88465C15 1.5639 14.7319 1.30476 14.4 1.30476ZM13.65 13.1926H1.35V6.30634H13.65V13.1926ZM1.35 5.07407V2.60952H3.75V3.47936C3.75 3.5591 3.8175 3.62433 3.9 3.62433H4.95C5.0325 3.62433 5.1 3.5591 5.1 3.47936V2.60952H9.9V3.47936C9.9 3.5591 9.9675 3.62433 10.05 3.62433H11.1C11.1825 3.62433 11.25 3.5591 11.25 3.47936V2.60952H13.65V5.07407H1.35Z"
-                  fill="#FB9400" />
+                <path d="M14.4 1.30476H11.25V0.144973C11.25 
+                0.065238 11.1825 0 11.1 0H10.05C9.9675 0 9.9
+                 0.065238 9.9 0.144973V1.30476H5.1V0.144973C5.1
+                  0.065238 5.0325 0 4.95 0H3.9C3.8175 0 3.75 0.065238 3.75 0.144973V1.30476H0.6C0.268125 1.30476 0 1.5639 0 1.88465V13.9174C0 14.2382 0.268125 14.4973 0.6 14.4973H14.4C14.7319 14.4973 15 14.2382 15 13.9174V1.88465C15 1.5639 14.7319 1.30476 14.4 1.30476ZM13.65 13.1926H1.35V6.30634H13.65V13.1926ZM1.35 5.07407V2.60952H3.75V3.47936C3.75 3.5591 3.8175 3.62433 3.9 3.62433H4.95C5.0325 3.62433 5.1 3.5591 5.1 3.47936V2.60952H9.9V3.47936C9.9 3.5591 9.9675 3.62433 10.05 3.62433H11.1C11.1825 3.62433 11.25 3.5591 11.25 3.47936V2.60952H13.65V5.07407H1.35Z"
+                  fill="#fb9400" />
               </svg>
-            </Button>
+            </button>
 
             {isUserId !== true && (
               <Button
