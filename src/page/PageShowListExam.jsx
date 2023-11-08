@@ -1,4 +1,5 @@
-import { Image, Space, Table } from "antd";
+import { Image, Table } from "antd";
+// import { Image, Space, Table } from "antd";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import imageBanner from "../image/toeic_luu_y.png";
@@ -60,9 +61,9 @@ function PageShowListExam(props) {
         <>
           <h2 className="text-orange-500 text-2xl font-medium text-center">
             Không có bài thi nào phù hợp{" "}
-            <br/>
+            <br />
 
-            Hãy <Link>mua khóa học </Link> để được hưởng các ưu đãi đặc biệt 
+            Hãy <Link>mua khóa học </Link> để được hưởng các ưu đãi đặc biệt
           </h2>
         </>
       )}

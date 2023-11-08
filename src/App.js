@@ -1,9 +1,10 @@
 import './App.css';
 import React from 'react';
-import MockTest from './page/MockTest'
+// import MockTest from './page/Vstep'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import Vstep from './page/Vstep';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,10 +25,11 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 function App() {
   return (
-   <>
-   {/* <FormExam/> */}
-  <MockTest/>
-   </>
+    <div className='bg-[#fafafa]'>
+      {/* <FormExam/> */}
+      {/* <MockTest/> */}
+      <Vstep />
+    </div>
   );
 }
 
